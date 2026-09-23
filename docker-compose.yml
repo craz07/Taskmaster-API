@@ -1,0 +1,13 @@
+version: "2"
+services:
+  api:
+    build: ./api
+    ports: ["3000:3000"]
+    env_file: .env.example
+    depends_on: [mongo, worker]
+  worker:
+    build: ./worker
+    ports: ["5000:5000"]
+    env_file: .env.example
+  mongo:
+    image: mongo:3.6
