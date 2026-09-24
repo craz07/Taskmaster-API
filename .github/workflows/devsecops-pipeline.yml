@@ -68,7 +68,8 @@ jobs:
           curl --fail http://localhost:3000/health
 
       - name: OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.12.0
+        uses: zaproxy/action-baseline@v0.15.0
         with:
-          target: 'http://localhost:3000/health'
+          target: 'http://localhost:3000'
           allow_issue_writing: false
+          artifact_name: 'zap-baseline-report'

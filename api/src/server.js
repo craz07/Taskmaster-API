@@ -31,7 +31,9 @@ function auth(req, res, next) {
     next();
   });
 }
-
+app.get('/', function (req, res) {
+  res.json({ status: 'TaskMaster API running' });
+});
 app.get('/health', function (req, res) {
   res.json({ status: 'ok', time: moment().format() });
 });
