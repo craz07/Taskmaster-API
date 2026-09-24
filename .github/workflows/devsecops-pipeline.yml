@@ -28,7 +28,9 @@ jobs:
 
       - name: Install Snyk CLI
         run: npm install -g snyk
-
+      - name: Install Node.js dependencies
+        working-directory: api
+        run: npm install
       - name: Snyk scan - Node.js
         run: snyk test --file=api/package.json
         env:
