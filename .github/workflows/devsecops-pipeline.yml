@@ -36,7 +36,8 @@ jobs:
         run: snyk test --file=api/package.json
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
+      - name: Install Python dependencies
+        run: pip install -r worker/requirements.txt
       - name: Snyk scan - Python
         continue-on-error: true
         run: snyk test --file=worker/requirements.txt --package-manager=pip
